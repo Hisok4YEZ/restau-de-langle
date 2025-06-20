@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu – Restaurant de l'Angle</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/header.css" />
+
+    <link rel="stylesheet" href="style/footer.css" />
+
+    <link rel="stylesheet" href="style/menu.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+    <script>
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+        });
+    </script>
+
+    <main class="menu-page fade-in">
+      <section class="menu-section">
+        <h1 class="section-title popin">Notre Carte</h1>
+
+        <!-- Tous les plats avec data-image sont inclus ici -->
+
+        <!-- Mezzeler -->
+        <article class="menu-category">
+          <h2>Mezzeler – Nos Entrées</h2>
+          <ul class="menu-list">
+            <li class="pizza-item" data-image="img/borek.jpg">
+              <h3>Börek – 5,00 €</h3>
+              <p>Rouleaux de brick garnis de fromage et persil.</p>
+            </li>
+            <li class="pizza-item" data-image="img/feuille_de_vigne.jpg">
+              <h3>Feuille de vigne – 5,00 €</h3>
+              <p>Farcie de riz, oignons, persil.</p>
+            </li>
+            <li class="pizza-item" data-image="img/assortiment_mezzes.jpg">
+              <h3>Assortiment de Mezzes – 10,00 €</h3>
+              <p>Cacik, Ezme, Houmous, Antep Söğürme, Pilaki.</p>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Salades -->
+        <article class="menu-category">
+          <h2>Nos Salades</h2>
+          <ul class="menu-list">
+            <li class="pizza-item" data-image="img/salade_verte.jpg">
+              <h3>Salade verte – 4,00 €</h3>
+              <p>Salade verte, tomates.</p>
+            </li>
+            <li class="pizza-item" data-image="img/salade_feta.jpg">
+              <h3>Salade feta – 11,00 €</h3>
+              <p>Concombre, tomates, olives, feta.</p>
+            </li>
+            <li class="pizza-item" data-image="img/emince_volaille.jpg">
+              <h3>Émincé de volaille – 12,00 €</h3>
+              <p>Volaille, pomme, cumin, carotte, amande effilée.</p>
+            </li>
+            <li class="pizza-item" data-image="img/tomates_mozzarella.jpg">
+              <h3>Tomates mozzarella – 11,00 €</h3>
+              <p>Tomates, mozzarella, olives noires, oignons.</p>
+            </li>
+            <li class="pizza-item" data-image="img/salade_thon.jpg">
+              <h3>Salade de thon – 12,00 €</h3>
+              <p>Thon, anchois, poivron vert, œuf dur, oignons.</p>
+            </li>
+            <li class="pizza-item" data-image="img/salade_cesar.jpg">
+              <h3>Salade César – 12,00 €</h3>
+              <p>Laitue, tomates, croûtons, parmesan, poulet.</p>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Sandwiches -->
+        <article class="menu-category">
+          <h2>Sandwiches</h2>
+          <ul class="menu-list">
+            <li class="pizza-item" data-image="img/kebab.jpg">
+              <h3>Kebab – 8,00 €</h3>
+              <p>Viande au choix dans pain ou galette, crudités, sauce.</p>
+            </li>
+            <li class="pizza-item" data-image="img/kebab_berliner.jpg">
+              <h3>Kebab Chef Berliner – 9,00 €</h3>
+              <p>Spécialité façon Berlin avec crudités et sauce au choix.</p>
+            </li>
+            <li class="pizza-item" data-image="img/americain.jpg">
+              <h3>Américain – 11,50 €</h3>
+              <p>Sandwich garni avec frites à l’intérieur.</p>
+            </li>
+            <li class="pizza-item" data-image="img/brochette_poulet.jpg">
+              <h3>Brochette de poulet – 11,50 €</h3>
+              <p>Galette ou pain avec brochettes grillées, crudités, sauce.</p>
+            </li>
+            <li class="pizza-item" data-image="img/falafel.jpg">
+              <h3>Falafel – 10,00 €</h3>
+              <p>Galette ou pain, falafels maison, crudités, sauce.</p>
+            </li>
+            <li class="pizza-item" data-image="img/adana_durum.jpg">
+              <h3>Adana Dürüm – 15,00 €</h3>
+              <p>Viande hachée d’agneau épicée dans galette.</p>
+            </li>
+            <li class="pizza-item" data-image="img/kusbasi_durum.jpg">
+              <h3>Kusbasi Dürüm – 15,00 €</h3>
+              <p>Morceaux de viande grillée dans galette.</p>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Plats -->
+        <article class="menu-category">
+          <h2>Nos Plats</h2>
+          <ul class="menu-list">
+            <li class="pizza-item" data-image="img/doner_kebab.jpg">
+              <h3>Döner Kebab – 14,00 €</h3>
+              <p>Viande de kebab avec garniture et accompagnement.</p>
+            </li>
+            <li class="pizza-item" data-image="img/moussaka.jpg">
+              <h3>Moussaka – 18,00 €</h3>
+              <p>Aubergines, viande hachée, sauce tomate, gratiné.</p>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Pide -->
+        <article class="menu-category">
+          <h2>Pide</h2>
+          <ul class="menu-list">
+            <li class="pizza-item" data-image="img/pide_fromage.jpg">
+              <h3>Pide fromage ou épinard – 10,00 €</h3>
+              <p>Pide maison au fromage ou épinard.</p>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Hamburgers -->
+        <article class="menu-category">
+          <h2>Hamburgers</h2>
+          <ul class="menu-list">
+            <li class="pizza-item" data-image="img/burger.jpg">
+              <h3>Burger – 6,00 € (menu : 10,00 €)</h3>
+              <p>Burger classique avec accompagnement.</p>
+            </li>
+            <li class="pizza-item" data-image="img/cheeseburger.jpg">
+              <h3>Cheeseburger – 4,00 € (menu : 8,00 €)</h3>
+              <p>Cheeseburger simple ou en formule.</p>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Desserts -->
+        <article class="menu-category">
+          <h2>Desserts</h2>
+          <ul class="menu-list">
+            <li class="pizza-item" data-image="img/baklava.jpg">
+              <h3>Baklava – 4,00 €</h3>
+            </li>
+            <li class="pizza-item" data-image="img/tiramisu.jpg">
+              <h3>Tiramisu – 4,00 €</h3>
+            </li>
+            <li class="pizza-item" data-image="img/künefe.jpg">
+              <h3>Künefe – 6,00 €</h3>
+            </li>
+            <li class="pizza-item" data-image="img/sutlac.jpg">
+              <h3>Sütlaç – 6,00 €</h3>
+            </li>
+            <li class="pizza-item" data-image="img/banana_split.jpg">
+              <h3>Banana Split – 7,00 €</h3>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Suppléments -->
+        <article class="menu-category">
+          <h2>Suppléments</h2>
+          <ul class="menu-list">
+            <li class="pizza-item" data-image="img/supplement_classique.jpg">
+              <h3>Viande classique – 5,00 €</h3>
+              <p>Kebab, brochette poulet, köfte, steak haché.</p>
+            </li>
+            <li class="pizza-item" data-image="img/supplement_premium.jpg">
+              <h3>Viande premium – 9,00 €</h3>
+              <p>Bavette, côtelette d'agneau, brochette d’agneau.</p>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Sauces -->
+        <article class="menu-category">
+          <h2>Sauces</h2>
+          <ul class="menu-list">
+            <li class="pizza-item" data-image="img/sauces.jpg">
+              <h3>Sauces</h3>
+              <p>
+                ketchup, mayo, harissa, sauce blanche, moutarde, sauce
+                algérienne, crudités burger.
+              </p>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <div id="footer"></div>
+    <script>
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+
+    <!-- Modale image -->
+    <div class="pizza-modal hidden" id="pizza-modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <img id="modal-image" src="" alt="Image plat" />
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+      </div>
+    </div>
+
+    <!-- Script modale image -->
+    <script>
+      const items = document.querySelectorAll(".pizza-item");
+      const modal = document.getElementById("pizza-modal");
+      const modalImage = document.getElementById("modal-image");
+      const modalTitle = document.getElementById("modal-title");
+      const modalDescription = document.getElementById("modal-description");
+      const closeBtn = modal.querySelector(".close-btn");
+
+      items.forEach((item) => {
+        item.addEventListener("click", () => {
+          const image = item.dataset.image || "img/default.jpg";
+          modalImage.src = image;
+          modalTitle.textContent = item.querySelector("h3")?.textContent || "";
+          modalDescription.textContent =
+            item.querySelector("p")?.textContent || "";
+          modal.classList.remove("hidden");
+        });
+      });
+
+      closeBtn.onclick = () => modal.classList.add("hidden");
+      window.onclick = (e) => {
+        if (e.target === modal) modal.classList.add("hidden");
+      };
+    </script>
+  </body>
+</html>
