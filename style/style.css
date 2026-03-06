@@ -1,196 +1,400 @@
-/* Reset rapide */
+/* =============================================
+   GLOBAL — Restaurant de l'Angle
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --bg:         #0d0b09;
+  --bg-card:    #181410;
+  --bg-section: #131109;
+  --gold:       #c9943a;
+  --gold-light: #e8b660;
+  --cream:      #f2ead8;
+  --text:       #ddd5c5;
+  --text-muted: #8a7f6e;
+  --border:     rgba(201, 148, 58, 0.22);
+  --radius:     12px;
+  --transition: 0.3s ease;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: white;
-    background-color: #1a1a1a;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--bg);
 }
 
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.25;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── UTILITAIRES ──────────────────────────── */
+
+.section-label {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 320px;
+  margin: 0 auto 2.5rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.divider-icon {
+  color: var(--gold);
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── PAGE HERO (menu, contact) ────────────── */
+
+.page-hero {
+  padding: 160px 2rem 70px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(201,148,58,0.06), transparent);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-hero h1 {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  color: var(--cream);
+  margin-bottom: 0.7rem;
+}
+
+.page-hero p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ── HERO ACCUEIL ─────────────────────────── */
 
 .hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background-image: url('../img/restau.jpg');
-    background-size: cover;
-    background-position: bottom;
-    background-attachment: fixed;
-    /* 👈 le cœur de l'effet parallax */
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 620px;
+  background-image: url('../img/restau.jpg');
+  background-size: cover;
+  background-position: center bottom;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-
-.hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: bottom;
-    display: none;
-
-    /* 👈 ici le changement clé */
-}
-
-
 
 .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.50) 0%,
+    rgba(13, 11, 9, 0.72) 55%,
+    rgba(13, 11, 9, 0.97) 100%
+  );
 }
 
 .hero-content {
-    text-align: center;
-    color: white;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 1.5rem;
 }
 
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 5px #000;
+.hero-eyebrow {
+  display: inline-block;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
 }
 
-/* Bouton du hero */
+.hero-title {
+  font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+  font-weight: 700;
+  color: var(--cream);
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(242, 234, 216, 0.7);
+  max-width: 480px;
+  margin: 0 auto 2.8rem;
+}
+
 .hero-btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    background-color: black;
-    color: white;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background-color: var(--gold);
+  border-radius: 50px;
+  box-shadow: 0 4px 24px rgba(201, 148, 58, 0.45);
+  transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 .hero-btn:hover {
-    background-color: #ffbd44;
-    transform: scale(1.05);
+  background-color: var(--gold-light);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 36px rgba(201, 148, 58, 0.6);
 }
 
-/* Section "Qui sommes-nous ?" */
+/* ── ABOUT ────────────────────────────────── */
+
 .about {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: auto;
-    gap: 2rem;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4.5rem;
+  padding: 7rem 3rem;
+  max-width: 1120px;
+  margin: 0 auto;
 }
 
 .about-text {
-    flex: 1;
-    text-align: justify;
+  flex: 1 1 340px;
 }
 
 .about-text h2 {
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    color: #ffbd44;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  color: var(--cream);
+  margin-bottom: 1.4rem;
+}
+
+.about-text p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-bottom: 1rem;
 }
 
 .about-img {
-    flex: 1;
-    text-align: center;
+  flex: 1 1 340px;
+  position: relative;
 }
 
 .about-img img {
-    max-width: 100%;
-    border-radius: 10px;
-    height: 300px;
-    width: 300px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
 }
 
-@media screen and (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2rem;
-        padding: 0 1rem;
-    }
-
-    .hero-btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-    }
-
-    .about {
-        flex-direction: column;
-        padding: 2rem 1rem;
-        text-align: center;
-    }
-
-    .about-text {
-        text-align: center;
-    }
-
-    .about-img img {
-        width: 90%;
-        height: auto;
-        max-width: 300px;
-    }
+.about-img::before {
+  content: '';
+  position: absolute;
+  inset: 12px -12px -12px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  pointer-events: none;
 }
 
-@media screen and (max-width: 768px) {
-    .hero {
-        background-image: url('../img/hero.jpg');
-        background-attachment: scroll;
-        background-position: center;
-    }
-}
+/* ── STUDENT DEAL ─────────────────────────── */
 
-/* Section Formule Étudiante */
 .student-deal {
-    background-color: #111;
-    /* fond sombre comme le flyer */
-    color: #e8e8e8;
-    text-align: center;
-    padding: 60px 20px;
+  background-color: var(--bg-section);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.student-deal-content {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.deal-badge {
+  display: inline-block;
+  background-color: rgba(201, 148, 58, 0.12);
+  border: 1px solid var(--border);
+  color: var(--gold);
+  padding: 0.4rem 1.3rem;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
 }
 
 .student-deal h2 {
-    color: #7ed957;
-    /* vert vif pour rappeler la "formule étudiante intéressante" */
-    margin-bottom: 15px;
-    font-size: 2em;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--cream);
+  margin-bottom: 0.8rem;
+}
+
+.deal-price {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1;
+  margin: 0.8rem 0 1.8rem;
 }
 
 .student-deal p {
-    max-width: 700px;
-    margin: 10px auto;
-    font-size: 1.1em;
-    line-height: 1.6em;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-bottom: 0.6rem;
 }
 
-/* Section contact */
+/* ── CONTACT INFO (index) ─────────────────── */
+
 .contact-info {
-    background-color: #1b1b1b;
-    color: #e8e8e8;
-    padding: 40px 20px;
-    font-size: 1em;
+  padding: 5.5rem 2rem;
+  background-color: var(--bg);
 }
 
-.contact-info a {
-    color: #7ed957;
-    text-decoration: none;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
+.contact-info-title {
+  text-align: center;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--cream);
+  margin-bottom: 3rem;
 }
 
 .contact-container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.7rem;
+  padding: 2.2rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.contact-item:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.contact-item-icon {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.contact-item strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  color: var(--cream);
+}
+
+.contact-item span,
+.contact-item a {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  transition: color var(--transition);
+}
+
+.contact-item a:hover {
+  color: var(--gold);
+}
+
+/* ── RESPONSIVE ───────────────────────────── */
+
+@media (max-width: 768px) {
+  .hero {
+    background-attachment: scroll;
+    background-image: url('../img/hero.jpg');
+    background-position: center;
+  }
+
+  .about {
+    flex-direction: column;
+    padding: 4rem 1.5rem;
+    gap: 2.5rem;
+  }
+
+  .about-img img {
+    height: 280px;
+  }
+
+  .about-img::before {
+    display: none;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
 }

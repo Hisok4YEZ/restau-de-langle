@@ -1,122 +1,145 @@
-/* FOOTER GLOBAL */
+/* =============================================
+   FOOTER — Restaurant de l'Angle
+   ============================================= */
+
 .site-footer {
-    background-color: #1a1a1a;
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 1rem;
+  background-color: #0a0907;
+  border-top: 1px solid rgba(201, 148, 58, 0.2);
+  color: #8a7f6e;
+  padding: 4rem 2rem 2.5rem;
+  font-size: 0.95rem;
 }
 
 .footer-content {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
 }
 
 .footer-sections {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  width: 100%;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(201, 148, 58, 0.12);
+  margin-bottom: 2rem;
 }
 
+/* Bloc Instagram */
+.footer-block-insta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.footer-block-insta a {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #f2ead8;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.footer-block-insta a:hover {
+  color: #c9943a;
+}
+
+.footer-block-insta img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.footer-block-insta p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 220px;
+}
+
+/* Blocs génériques */
 .footer-block {
-    flex: 1 1 250px;
-    max-width: 300px;
-    text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .footer-block h4 {
-    margin-bottom: 10px;
-    color: #ffbd44;
-    font-size: 1.1rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: #f2ead8;
+  margin-bottom: 0.8rem;
 }
 
 .footer-block ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    line-height: 1.6;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 2;
 }
 
-.footer-block img {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 0;
-    display: block;
+.footer-block ul li {
+  font-size: 0.9rem;
 }
 
+/* Liens de navigation */
 .footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .footer-links a {
-    color: #ffbd44;
-    text-decoration: none;
-    transition: color 0.3s;
+  color: #8a7f6e;
+  font-size: 0.9rem;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+  display: inline-block;
 }
 
 .footer-links a:hover {
-    color: #fff;
+  color: #c9943a;
+  padding-left: 4px;
 }
 
-.site-footer p:last-child {
-    margin-top: 1.5rem;
-    color: #999;
-    font-size: 0.9rem;
+/* Copyright */
+.footer-bottom {
+  text-align: center;
+  font-size: 0.82rem;
+  color: #5a5247;
 }
 
-/* RESPONSIVE */
-@media screen and (max-width: 768px) {
-    .footer-sections {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
+/* ── RESPONSIVE ───────────────────────────── */
 
-    .footer-block {
-        max-width: 90%;
-        text-align: center;
-    }
+@media (max-width: 768px) {
+  .footer-sections {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
 
-    .footer-block img {
-        width: 80px;
-        height: 80px;
-        margin: 0 auto 10px;
-    }
+  .footer-block-insta {
+    align-items: center;
+  }
 
-    .insta-block {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  .footer-block-insta p {
+    max-width: 100%;
+  }
 
-    .insta-block a {
-        display: inline-block;
-        margin-bottom: 10px;
-        /* 👈 ajuste ici (0 à 10 max) */
+  .footer-block {
+    align-items: center;
+  }
 
-    }
-
-    .footer-links {
-        align-items: center;
-    }
-
-    .footer-links a {
-        font-size: 1.05rem;
-    }
-
-    .site-footer {
-        padding: 30px 15px;
-    }
-
-    .site-footer p:last-child {
-        font-size: 0.85rem;
-    }
+  .footer-links {
+    align-items: center;
+  }
 }

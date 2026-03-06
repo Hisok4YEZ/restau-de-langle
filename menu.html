@@ -10,20 +10,17 @@
     <link rel="stylesheet" href="style/footer.css" />
 
     <link rel="stylesheet" href="style/menu.css" />
+    <script src="script/script.js" defer></script>
   </head>
   <body>
     <div id="header"></div>
-    <script>
-      fetch("header.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.getElementById("header").innerHTML = data;
-        });
-    </script>
 
     <main class="menu-page fade-in">
+      <div class="page-hero">
+        <h1>Notre Carte</h1>
+        <p>Mezzes, grillades, sandwiches, desserts... Une cuisine généreuse et authentique.</p>
+      </div>
       <section class="menu-section">
-        <h1 class="section-title popin">Notre Carte</h1>
 
         <!-- Tous les plats avec data-image sont inclus ici -->
 
@@ -381,21 +378,16 @@
     </main>
 
     <div id="footer"></div>
-    <script>
-      fetch("footer.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.getElementById("footer").innerHTML = data;
-        });
-    </script>
 
     <!-- Modale image -->
     <div class="pizza-modal hidden" id="pizza-modal">
       <div class="modal-content">
         <span class="close-btn">&times;</span>
         <img id="modal-image" src="" alt="Image plat" />
-        <h2 id="modal-title"></h2>
-        <p id="modal-description"></p>
+        <div class="modal-body">
+          <h2 id="modal-title"></h2>
+          <p id="modal-description"></p>
+        </div>
       </div>
     </div>
 

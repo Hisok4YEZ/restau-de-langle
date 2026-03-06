@@ -1,149 +1,227 @@
-/* menu.css – style du menu uniquement, sans doublon avec header.css */
-
+/* =============================================
+   MENU — Restaurant de l'Angle
+   ============================================= */
 
 .menu-page {
-    padding: 120px 20px 50px;
-    background-color: #1a1a1a;
-    color: #fff;
+  padding-bottom: 6rem;
+  background-color: #0d0b09;
+}
+
+/* ── CATÉGORIES ───────────────────────────── */
+
+.menu-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .section-title {
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 50px;
-    color: #ffbd44;
-    animation: pop-in 0.6s ease-out;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  color: #f2ead8;
+  margin-bottom: 3.5rem;
 }
 
 .menu-category {
-    background-color: #1f1f1f;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 40px;
+  margin-bottom: 4rem;
 }
 
 .menu-category h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #ffaa00;
-    border-bottom: 2px solid #ffaa00;
-    padding-bottom: 5px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  color: #f2ead8;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(201, 148, 58, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
+
+.menu-category h2::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 1.4rem;
+  background-color: #c9943a;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ── GRILLE D'ITEMS ───────────────────────── */
 
 .menu-list {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
 }
 
+/* ── CARTE ITEM ───────────────────────────── */
+
 .pizza-item {
-    background-color: #2a2a2a;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+  background-color: #181410;
+  border: 1px solid rgba(201, 148, 58, 0.15);
+  border-radius: 12px;
+  padding: 1.3rem 1.5rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.pizza-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background-color: #c9943a;
+  transition: height 0.3s ease;
 }
 
 .pizza-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 20px rgba(255, 189, 68, 0.3);
-    background-color: #333;
+  border-color: rgba(201, 148, 58, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.pizza-item:hover::before {
+  height: 100%;
 }
 
 .pizza-item h3 {
-    margin: 0;
-    color: #fff;
-    font-size: 1.2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: #f2ead8;
+  font-weight: 600;
 }
 
 .pizza-item p {
-    margin: 5px 0 0 0;
-    color: #ccc;
-    font-size: 1rem;
+  font-size: 0.88rem;
+  color: #8a7f6e;
+  line-height: 1.5;
 }
 
+.item-click-hint {
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  color: rgba(201, 148, 58, 0.5);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* ── MODALE IMAGE ─────────────────────────── */
+
 .pizza-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 1.5rem;
 }
 
 .modal-content {
-    background: #1a1a1a;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
-    width: 90%;
-    text-align: center;
-    position: relative;
-    animation: fadeIn 0.3s ease;
+  background: #181410;
+  border: 1px solid rgba(201, 148, 58, 0.25);
+  color: #f2ead8;
+  padding: 0;
+  border-radius: 14px;
+  max-width: 520px;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  animation: modalIn 0.3s ease;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.94) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .modal-content img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    object-fit: cover;
-    max-height: 300px;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-body {
+  padding: 1.5rem 1.8rem 1.8rem;
+}
+
+#modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #f2ead8;
+  margin-bottom: 0.6rem;
+}
+
+#modal-description {
+  font-size: 0.95rem;
+  color: #8a7f6e;
+  line-height: 1.65;
 }
 
 .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    color: #fff;
-    cursor: pointer;
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #f2ead8;
+  cursor: pointer;
+  z-index: 1;
+  transition: background 0.2s ease;
+}
+
+.close-btn:hover {
+  background: rgba(201, 148, 58, 0.7);
 }
 
 .hidden {
-    display: none;
+  display: none !important;
 }
 
+/* Animation d'entrée pour le titre */
 @keyframes pop-in {
-    0% {
-        transform: scale(0.7);
-        opacity: 0;
-    }
-
-    60% {
-        transform: scale(1.1);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(1);
-    }
+  0%   { transform: scale(0.75); opacity: 0; }
+  60%  { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+.popin {
+  animation: pop-in 0.55s ease-out both;
 }
 
-/* Image modale script */
-.pizza-item[data-image]::after {
-    content: "";
-    display: none;
-}
+/* ── RESPONSIVE ───────────────────────────── */
 
-@media screen and (max-width: 768px) {
-    .modal-content img {
-        max-height: 200px;
-    }
+@media (max-width: 768px) {
+  .menu-list {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content img {
+    height: 200px;
+  }
+
+  .menu-section {
+    padding: 0 1.2rem;
+  }
 }
